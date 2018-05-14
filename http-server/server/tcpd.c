@@ -9,8 +9,32 @@
 #define DEFAULT_PORT "8000"
 #define DOCUMENT_ROOT "/Users/sunouchimitsuruga/Desktop/tech/C_homework/http-server/server/root"
 
+typedef strunct extension {
+    char* name;
+    char* MIME;
+} Extension;
+
+//拡張子とMIMEの対応表
+//http://www.geocities.co.jp/Hollywood/9752/mime.html
+const Extension all_extension[] = {
+    {".txt" , "text/plain"},
+    {".html", "text/html"},
+    {".c"   , "text/c"},
+    {".hml" , "text/html"},
+    {".css" , "text/css"},
+    {".jpg" , "image/jpeg"},
+    {".jpeg", "image/jpeg"},
+    {".JPEG", "image/jpeg"},
+    {".png" , "image/png"},
+    {".js"  , "text/javascript"},
+}
+
+//宣言
 void http(int sockfd);
 int send_msg(int fd, char *msg);
+void outputExtension(char *path, char *output);
+char *getFile(char *path,  char *file);
+char *getImage(char *path, char *image);
 
 int main(int argc, char* argv[]) {
    int servSock; //server socket descripter
@@ -50,6 +74,7 @@ int main(int argc, char* argv[]) {
    memset(buf, 0, sizeof(buf));
    sprintf(buf, "HTTP/1.0 200 OK\r\nContent-Length: 20\r\nContent-Type: text/html\r\n\r\nHELLO\r\n");
 
+   //本当ならフォークするべき
    while(1) {
        clitLen = sizeof(clitSockAddr);
        clitSock = accept(servSock, (struct sockaddr *) &clitSockAddr, &clitLen);

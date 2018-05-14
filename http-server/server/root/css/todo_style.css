@@ -1,0 +1,100 @@
+/*
+・色は公式の色を採用
+・各種スタイル、配置は作成
+*/
+
+body{
+    background-color: #f5f5f5;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    min-width: 500px;
+}
+
+footer{
+    margin-top: 30px;
+    text-align: center;
+}
+
+h1{
+    width: 100%;
+	font-size: 80px;
+	font-weight: 100;
+    margin-top:0;
+    margin-bottom:0;
+	text-align: center;
+	color: rgba(175, 47, 47, 0.15);
+}
+
+table{
+  border-collapse:collapse;
+  margin:0 auto;
+  width: 500px;
+  background:#ffffff;
+  table-layout: fixed;
+}
+
+td,th{
+  padding:10px;
+  border:1px solid #ccc;
+}
+
+th{
+  color:#fff;
+  background:#ece5e5;
+  border-spacing : 0px 5px;
+}
+
+#todo_list tr:hover .todo_delete{
+    display: block
+}
+
+#todo_list .todo_delete{
+    float: right;
+    margin: 3px;
+    display: none;
+    cursor: pointer;
+}
+
+#todo_list .edit_text{
+    display: none;
+}
+
+#todo_list .editing .edit_text{
+    display: block;
+}
+
+
+#todo_list .editing .view{
+    display: none;
+}
+
+.todo_text{
+    float: left;
+    width: 80%;
+    margin-left: 10px;
+    word-wrap: break-word;
+}
+
+.check_box{
+    width: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#input_todo{
+    width: 95%;
+    margin: auto;
+}
+
+.active {
+  border-color:#fbb;
+  color: black;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+button:hover:not(.active){
+    opacity: 0.8;
+
+}
